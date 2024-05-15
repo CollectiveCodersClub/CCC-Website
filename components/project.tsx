@@ -6,31 +6,37 @@ import { GitHub, Launch } from '@mui/icons-material'
 import Modal from './modal'
 
 interface ProjectProps {
-  even?: boolean
+  name: string,
+  short: string,
+  long: string,
+  stack: any[],
+  links: any[],
+  even: boolean,
 }
 
-const Project: React.FC<ProjectProps> = ({ even }) => {
+const Project: React.FC<ProjectProps> = ({ name, short, long, stack, links, even }) => {
   const [openModal, setOpenModal] = useState(false)
 
   return (
     <>
-      <div className={`relative flex gap-8 ${even && 'flex-row-reverse'}`}>
-        <div className='h-52 w-96 bg-white'></div>
-        <div className={`w-[36rem] flex flex-col gap-2 ${even && 'items-end'}`}>
-          <h2 className='w-fit font-pressStart text-sm hover:text-green transition-all cursor-pointer' onClick={() => setOpenModal(true)}>Project Name</h2>
-          <p className={`font-light ${even && 'text-right'}`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh tellus molestie nunc non blandit massa enim nec dui. In egestas erat imperdiet sed euismod. Sem et tortor consequat id porta. Non quam lacus suspendisse faucibus interdum. Ut tellus elementum sagittis vitae et leo duis ut diam.</p>
+      <div className={`relative flex flex-col lg:flex-row gap-4 lg:gap-8 ${even && 'lg:flex-row-reverse'}`}>
+        <div className='h-52 w-96 bg-white rounded-md'></div>
+        <div className={`w-full lg:w-[36rem] flex flex-col gap-2 ${even && 'lg:items-end'}`}>
+          <h2 className='w-fit font-pressStart text-sm hover:text-green transition-all cursor-pointer' onClick={() => setOpenModal(true)}>{name}</h2>
+          <p className={`font-light ${even && 'lg:text-right'}`}>{short}</p>
           <ul className='flex items-center gap-6 font-pressStart text-[10px]'>
-            <li>Next.js</li>
-            <li>Tailwind CSS</li>
-            <li>Vercel</li>
+            {stack.map((tech) => (
+              <li key={tech.stackNum}>{tech.stackName}</li>
+            ))}
           </ul>
           <ul className='flex items-center gap-4'>
-            <li><Link href='/' title='Link to Github'><GitHub fontSize='small' className='hover:fill-green transition-all' /></Link></li>
-            <li><Link href='/' title='Link to Collective Coders Club'><Launch fontSize='small' className='hover:fill-green transition-all' /></Link></li>
+            {links.map((link) => (
+              <li key={link.id}><Link href={link.href} title={`Link to ${link.name}`} target="_blank" rel="noopener noreferrer">{link.icon}</Link></li>
+            ))}
           </ul>
         </div>
       </div>
-      {openModal && <Modal setOpenModal={setOpenModal} />}
+      {openModal && <Modal name={name} long={long} stack={stack} links={links} setOpenModal={setOpenModal} />}
     </>
   )
 }
