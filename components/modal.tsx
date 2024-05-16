@@ -15,11 +15,11 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ name, long, stack, links, setOpenModal }) => {
   return (
     <div className='fixed h-screen w-screen z-20 inset-0 flex justify-center items-center'>
-      <div className='absolute h-[80vh] w-[90vw] lg:w-[60vw] p-8 flex flex-col gap-4 bg-darkGray/50 backdrop-blur-sm border border-green rounded-md overflow-hidden'>
+      <div className='absolute h-[80vh] w-[90vw] md:w-[60vw] p-8 flex flex-col gap-4 bg-darkGray/50 backdrop-blur-sm border border-green rounded-md overflow-hidden'>
         <button className='w-full flex justify-end' onClick={() => setOpenModal(false)} title='Close'><Close className='hover:fill-green' /></button>
         <div className='space-y-4 overflow-scroll'>
           <h1 className='font-pressStart'>{name}</h1>
-          <div className='h-48 lg:h-[24rem] w-full bg-white rounded-md'></div>
+          <div className='h-48 md:h-[24rem] w-full bg-white rounded-md'></div>
           <p>{long}</p>
           <ul className='flex items-center flex-wrap gap-6 font-pressStart text-[10px]'>
           {stack.map((tech) => (
