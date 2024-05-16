@@ -22,7 +22,7 @@ const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
 
   return (
-    <nav className='fixed h-20 w-full z-10 px-4 lg:px-16 flex justify-between items-center gap-4 lg:gap-0 bg-black/20 shadow-md backdrop-blur-sm'>
+    <nav className='fixed h-20 w-full z-20 px-4 lg:px-16 flex justify-between items-center gap-4 lg:gap-0 bg-black/20 shadow-md backdrop-blur-sm'>
       <Link className='flex items-center gap-4' href={'/'} title='Home'>
         <Image 
           className='h-16 w-16'

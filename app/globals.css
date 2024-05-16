@@ -5,3 +5,7 @@
 html {
   scroll-behavior: smooth!important;
 }
+
+.bg-hero-image {
+  background-image: url('https://cdn.discordapp.com/attachments/1235644519358271583/1237277311200395326/Green-Bus-Lines.png?ex=6646448a&is=6644f30a&hm=91c73892e6a3875af0b302157a43ecfb7219bda84bd5498ff60bc9e7abd1c5b6&');
+}
