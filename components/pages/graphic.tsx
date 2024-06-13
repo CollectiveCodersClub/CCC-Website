@@ -15,7 +15,7 @@ const iconDetails = [
 const Graphic = () => (
   <section className='py-8'>
     <Container>
-      <div className='flex justify-center items-center text-white'>
+      <div className='mb-16 flex justify-center items-center text-white'>
         {iconDetails.map((icon, index) => (
           <React.Fragment key={icon.alt}>
             <div className='text-center'>
